@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,15 +29,17 @@ public class RegisterPatients {
     }
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid PatientsDataUpdate data){
+    public ResponseEntity update(@RequestBody @Valid PatientsDataUpdate data){
         var patients = repository.getReferenceById(data.id());
         patients.updateInformation(data);
+        return ResponseEntity.ok(new PatientsDetails(patients));
 
     }
     @DeleteMapping("/{id}")
     @Transactional
-    public void deletePatients(@PathVariable Long id){
+    public ResponseEntity deletePatients(@PathVariable Long id){
         var patients = repository.getReferenceById(id);
         patients.delete();
+        return ResponseEntity.noContent().build();
     }
 }
