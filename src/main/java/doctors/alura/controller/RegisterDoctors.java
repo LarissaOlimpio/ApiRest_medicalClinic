@@ -50,4 +50,10 @@ public class RegisterDoctors {
        return  ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity getDetailsDoctor(@PathVariable Long id){
+        var doctor =  repository.getReferenceById(id);
+        return  ResponseEntity.ok(new DoctorDetails(doctor));
+    }
+
 }
