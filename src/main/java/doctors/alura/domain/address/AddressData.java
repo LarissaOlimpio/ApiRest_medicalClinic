@@ -1,6 +1,5 @@
-package doctors.alura.address;
+package doctors.alura.domain.address;
 
-import doctors.alura.doctors.Specialty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 

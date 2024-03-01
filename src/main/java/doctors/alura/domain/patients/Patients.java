@@ -1,7 +1,6 @@
-package doctors.alura.patients;
+package doctors.alura.domain.patients;
 
-import doctors.alura.address.Address;
-import doctors.alura.address.AddressData;
+import doctors.alura.domain.address.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package doctors.alura.address;
+package doctors.alura.domain.address;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

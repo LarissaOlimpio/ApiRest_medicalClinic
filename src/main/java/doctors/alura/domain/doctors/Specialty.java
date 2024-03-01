@@ -1,4 +1,4 @@
-package doctors.alura.doctors;
+package doctors.alura.domain.doctors;
 
 public enum Specialty {
     ORTHOPEDICS,

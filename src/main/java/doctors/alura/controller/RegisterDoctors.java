@@ -1,6 +1,9 @@
 package doctors.alura.controller;
 
-import doctors.alura.doctors.*;
+import doctors.alura.domain.doctors.*;
+import doctors.alura.domain.doctors.Doctors;
+import doctors.alura.domain.doctors.DoctorsDataList;
+import doctors.alura.domain.doctors.DoctorsRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("doctors")

@@ -1,6 +1,6 @@
-package doctors.alura.patients;
+package doctors.alura.domain.patients;
 
-import doctors.alura.address.AddressData;
+import doctors.alura.domain.address.AddressData;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

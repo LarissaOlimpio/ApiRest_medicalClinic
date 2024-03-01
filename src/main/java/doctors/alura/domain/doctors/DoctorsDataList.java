@@ -1,4 +1,4 @@
-package doctors.alura.doctors;
+package doctors.alura.domain.doctors;
 
 public record DoctorsDataList(Long id,String name, String crm, String email, Specialty specialty) {
 

@@ -1,6 +1,6 @@
-package doctors.alura.patients;
+package doctors.alura.domain.patients;
 
-import doctors.alura.address.AddressData;
+import doctors.alura.domain.address.AddressData;
 import jakarta.validation.constraints.NotNull;
 
 public record PatientsDataUpdate(

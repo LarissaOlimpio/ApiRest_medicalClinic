@@ -1,9 +1,6 @@
-package doctors.alura.doctors;
+package doctors.alura.domain.doctors;
 
-import doctors.alura.address.Address;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import doctors.alura.domain.address.Address;
 
 public record DoctorDetails(
         Long id,
