@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("patients")
@@ -19,13 +20,17 @@ public class RegisterPatients {
 
     @PostMapping
     @Transactional
-    public  void register(@RequestBody @Valid PatientsData data){
-        repository.save(new Patients(data));
+    public  ResponseEntity register(@RequestBody @Valid PatientsData data, UriComponentsBuilder uriBuilder){
+        var patients = new Patients(data);
+        repository.save(patients);
+        var uri = uriBuilder.path("patients/{id}").buildAndExpand(patients.getId()).toUri();
+        return ResponseEntity.created(uri).body(new PatientsDetails(patients));
 
     }
     @GetMapping
-    public Page<PatientsDataList> list(@PageableDefault( size=10, sort ={"name"})Pageable pagination){
-        return repository.findAllByActiveTrue(pagination).map(PatientsDataList :: new);
+    public ResponseEntity<Page<PatientsDataList>> list(@PageableDefault( size=10, sort ={"name"})Pageable pagination){
+        var page =  repository.findAllByActiveTrue(pagination).map(PatientsDataList :: new);
+        return ResponseEntity.ok(page);
     }
     @PutMapping
     @Transactional
