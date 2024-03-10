@@ -30,6 +30,7 @@ public class Users implements UserDetails {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+
     @Override
     public String getUsername() {
         return login;
