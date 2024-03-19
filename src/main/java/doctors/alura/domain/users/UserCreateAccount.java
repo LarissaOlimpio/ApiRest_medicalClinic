@@ -18,7 +18,14 @@ public class UserCreateAccount {
     private Long id;
 
     private String name;
-    private String email;
+    private String login;
     private String phone;
     private String cpf;
+
+    public UserCreateAccount(UserCreateAccountData userCreateAccountData) {
+        this.name = userCreateAccountData.name();
+        this.login = userCreateAccountData.login();
+        this.phone = userCreateAccountData.phone();
+        this.cpf = userCreateAccountData.cpf();
+    }
 }
