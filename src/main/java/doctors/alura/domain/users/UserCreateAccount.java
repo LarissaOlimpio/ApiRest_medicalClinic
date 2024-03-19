@@ -1,6 +1,7 @@
 package doctors.alura.domain.users;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -21,11 +22,14 @@ public class UserCreateAccount {
     private String login;
     private String phone;
     private String cpf;
+    @Pattern(regexp = "admin/doctor/patient")
+    private String userType;
 
     public UserCreateAccount(UserCreateAccountData userCreateAccountData) {
         this.name = userCreateAccountData.name();
         this.login = userCreateAccountData.login();
         this.phone = userCreateAccountData.phone();
         this.cpf = userCreateAccountData.cpf();
+        this.userType = userCreateAccountData.userType();
     }
 }
