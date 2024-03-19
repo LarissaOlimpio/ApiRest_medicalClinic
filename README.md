@@ -1,6 +1,6 @@
 ## 💻 Sobre o projeto
 
-ApiRest_medicalClinic é uma api para uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo deve possuir funcionalidades que permitam o cadastro de médicos e de pacientes, e também o agendamento e cancelamento de consultas.
+ApiRest_medicalClinic é uma api para uma clínica médica fictícia que precisa de um aplicativo para gestão de consultas. O aplicativo deve possuir funcionalidades que permitam o cadastro de médicos, pacientes e usuários, e também o agendamento e cancelamento de consultas.
 
 Esse projeto é sobre o desenvolvimento da API Rest para essa clínica.
 
@@ -10,6 +10,7 @@ Esse projeto é sobre o desenvolvimento da API Rest para essa clínica.
 
 - [x] CRUD de médicos;
 - [x] CRUD de pacientes;
+- [ ] CRUD de usuários(em andamento);
 - [ ] Agendamento de consultas(em breve);
 - [ ] Cancelamento de consultas(em breve);
 
@@ -43,8 +44,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento da API Rest do proj
 
 ## 📝 Licença
 
-Projeto desenvolvido por [Alura](https://www.alura.com.br) e  Larissa Olimpio.
-
-Instrutor: [Rodrigo Ferreira](https://cursos.alura.com.br/user/rodrigo-ferreira) 
+Projeto desenvolvido por Larissa Olimpio.
+ 
 
 ---
