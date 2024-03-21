@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("doctor-appointment")
 public class DoctorAppointment {
     @PostMapping
-    public ResponseEntity appointment(@RequestBody @Valid AppointmentData data){
+    public ResponseEntity schedule(@RequestBody @Valid AppointmentData data){
         return ResponseEntity.ok(new AppointmentDetails(data));
     }
 }
