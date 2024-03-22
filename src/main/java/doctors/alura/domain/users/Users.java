@@ -32,6 +32,7 @@ public class Users implements UserDetails {
     private String password;
     @Pattern(regexp = "admin/doctor/patient")
     private String userType;
+    public boolean active;
 
     public Users(UserCreateAccountData userCreateAccountData){
         this.name = userCreateAccountData.name();
@@ -40,6 +41,7 @@ public class Users implements UserDetails {
         this.cpf = userCreateAccountData.cpf();
         this.password =userCreateAccountData.password();
         this.userType = userCreateAccountData.userType();
+        this.active = true;
     }
 
     @Override
