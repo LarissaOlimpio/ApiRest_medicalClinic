@@ -29,6 +29,7 @@ public class Users implements UserDetails {
     private String login;
     private String phone;
     private String cpf;
+    private String email;
     private String password;
     @Pattern(regexp = "admin/doctor/patient")
     private String userType;
@@ -39,6 +40,7 @@ public class Users implements UserDetails {
         this.login = userCreateAccountData.login();
         this.phone = userCreateAccountData.phone();
         this.cpf = userCreateAccountData.cpf();
+        this.email = userCreateAccountData.email();
         this.password =userCreateAccountData.password();
         this.userType = userCreateAccountData.userType();
         this.active = true;

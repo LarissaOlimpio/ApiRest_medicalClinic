@@ -14,6 +14,8 @@ public record UserCreateAccountData(
         String password,
         @NotBlank
         String cpf,
+        @NotBlank
+        String email,
         @Pattern(regexp = "admin/doctor/patient" )
         String userType) {
 }
