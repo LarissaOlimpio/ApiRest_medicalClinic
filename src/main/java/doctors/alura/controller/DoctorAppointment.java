@@ -19,7 +19,7 @@ public class DoctorAppointment {
         schedule.schedule(data);
         return ResponseEntity.ok(new AppointmentDetails(data));
     }
-    @DeleteMapping ("{/id}")
+    @DeleteMapping
     @Transactional
     public ResponseEntity deleteAppointment(@RequestBody @Valid AppointmentDataDelete data){
         schedule.delete(data);

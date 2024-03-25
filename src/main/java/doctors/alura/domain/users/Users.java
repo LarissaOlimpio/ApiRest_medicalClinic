@@ -31,8 +31,7 @@ public class Users implements UserDetails {
     private String cpf;
     private String email;
     private String password;
-    @Pattern(regexp = "admin/doctor/patient")
-    private String userType;
+    private TypeUser typeUser;
     public boolean active;
 
     public Users(UserCreateAccountData userCreateAccountData){
@@ -42,7 +41,7 @@ public class Users implements UserDetails {
         this.cpf = userCreateAccountData.cpf();
         this.email = userCreateAccountData.email();
         this.password =userCreateAccountData.password();
-        this.userType = userCreateAccountData.userType();
+        this.typeUser = userCreateAccountData.typeUser();
         this.active = true;
     }
 
