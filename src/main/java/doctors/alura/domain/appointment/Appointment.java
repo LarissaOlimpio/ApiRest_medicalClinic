@@ -32,4 +32,11 @@ public class Appointment {
 
     private LocalDateTime data;
 
+    @Column(name = "reason_delete")
+    @Enumerated(EnumType.STRING)
+    private ReasonDelete reasonDelete;
+
+    public void delete(ReasonDelete reason) {
+        this.reasonDelete = reason;
+    }
 }

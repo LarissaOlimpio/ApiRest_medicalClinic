@@ -1,5 +1,4 @@
 package doctors.alura.controller;
-
 import doctors.alura.domain.patients.Patients;
 import doctors.alura.domain.patients.PatientsDataList;
 import doctors.alura.domain.patients.PatientsRepository;
