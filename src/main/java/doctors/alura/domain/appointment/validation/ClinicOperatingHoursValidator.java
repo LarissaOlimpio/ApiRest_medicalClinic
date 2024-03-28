@@ -1,7 +1,8 @@
 package doctors.alura.domain.appointment.validation;
 
+import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.appointment.ConsultationData;
-import jakarta.validation.ValidationException;
+
 
 import java.time.DayOfWeek;
 
@@ -14,7 +15,7 @@ public class ClinicOperatingHoursValidator {
         var hoursClinicClose = dataConsultation.getHour() > 18;
 
         if(isEqualsSunday || hoursClinicOpen || hoursClinicClose){
-            throw  new ValidationException("Medical consultation outside the clinic's opening hours");
+            throw  new CustomValidationException("Medical consultation outside the clinic's opening hours");
         }
 
     }
