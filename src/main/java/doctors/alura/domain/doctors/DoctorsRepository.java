@@ -16,9 +16,9 @@ public interface DoctorsRepository extends JpaRepository<Doctors, Long> {
             d.specialty = :specialty
             and
             d.id not in (
-                select ap.doctor.id from consultation ap
+                select c.doctor.id from consultation c
                 where
-                ap.data = :data
+                c.data = :data
             )
             order by rand()
             limit 1

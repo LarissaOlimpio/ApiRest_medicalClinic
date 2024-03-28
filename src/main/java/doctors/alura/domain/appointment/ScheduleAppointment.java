@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ScheduleAppointment {
     @Autowired
-    private ConsultationRepository appointmentRepository;
+    private ConsultationRepository consultationRepository;
     @Autowired
     private PatientsRepository patientsRepository;
     @Autowired
@@ -28,7 +28,7 @@ public class ScheduleAppointment {
         var patient = patientsRepository.getReferenceById(data.idPatient());
 
         var appointment = new Consultation( null, doctor, patient, data.data(), null);
-        appointmentRepository.save(appointment);
+        consultationRepository.save(appointment);
         System.out.println(appointment);
     }
 
@@ -45,10 +45,10 @@ public class ScheduleAppointment {
     }
 
     public void delete(ConsultationDataDelete data) {
-        if(!appointmentRepository.existsById(data.idAppointment())){
+        if(!consultationRepository.existsById(data.idAppointment())){
             throw new ValidationException("Consultation Id not exist");
         }
-        var appointment = appointmentRepository.getReferenceById(data.idAppointment());
+        var appointment = consultationRepository.getReferenceById(data.idAppointment());
         appointment.delete(data.reason());
     }
 }

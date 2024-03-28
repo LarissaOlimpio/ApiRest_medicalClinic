@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("doctor-appointment")
+@RequestMapping("doctor-consultation")
 public class DoctorConsultation {
     @Autowired
     private ScheduleAppointment schedule;
     @Autowired
-    private ConsultationRepository appointmentRepository;
+    private ConsultationRepository consultationRepository;
     @PostMapping
     public ResponseEntity schedule(@RequestBody @Valid ConsultationData data){
         schedule.schedule(data);
