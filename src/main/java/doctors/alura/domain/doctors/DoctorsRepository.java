@@ -16,7 +16,7 @@ public interface DoctorsRepository extends JpaRepository<Doctors, Long> {
             d.specialty = :specialty
             and
             d.id not in (
-                select ap.doctor.id from Appointment ap
+                select ap.doctor.id from consultation ap
                 where
                 ap.data = :data
             )

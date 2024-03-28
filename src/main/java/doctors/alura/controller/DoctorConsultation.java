@@ -17,7 +17,7 @@ public class DoctorConsultation {
     @PostMapping
     public ResponseEntity schedule(@RequestBody @Valid ConsultationData data){
         schedule.schedule(data);
-        return ResponseEntity.ok(new AppointmentDetails(data));
+        return ResponseEntity.ok(new ConsultationDetails(data));
     }
     @DeleteMapping
     @Transactional

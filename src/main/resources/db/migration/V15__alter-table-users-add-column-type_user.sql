@@ -1,0 +1,1 @@
+alter table users add type_user varchar(100) not null;

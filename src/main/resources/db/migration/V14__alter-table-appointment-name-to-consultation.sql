@@ -1,0 +1,1 @@
+alter table appointments rename to consultation;

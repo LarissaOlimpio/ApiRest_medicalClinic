@@ -1,0 +1,1 @@
+ALTER TABLE users MODIFY COLUMN type_user VARCHAR(100);
