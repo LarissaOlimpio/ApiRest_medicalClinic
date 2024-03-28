@@ -13,7 +13,7 @@ public class DoctorConsultation {
     @Autowired
     private ScheduleAppointment schedule;
     @Autowired
-    private AppointmentRepository appointmentRepository;
+    private ConsultationRepository appointmentRepository;
     @PostMapping
     public ResponseEntity schedule(@RequestBody @Valid ConsultationData data){
         schedule.schedule(data);

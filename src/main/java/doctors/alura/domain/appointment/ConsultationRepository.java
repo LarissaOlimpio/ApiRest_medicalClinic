@@ -2,5 +2,5 @@ package doctors.alura.domain.appointment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AppointmentRepository extends JpaRepository<Consultation,Long> {
+public interface ConsultationRepository extends JpaRepository<Consultation,Long> {
 }
