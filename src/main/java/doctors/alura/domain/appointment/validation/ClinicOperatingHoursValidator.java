@@ -8,12 +8,12 @@ import java.time.DayOfWeek;
 public class ClinicOperatingHoursValidator {
 
     public void validator(AppointmentData data){
-        var dataAppointment = data.data();
-        var isEqualsSunday = dataAppointment.getDayOfWeek().equals(DayOfWeek.SUNDAY);
-        var hoursAppointmentOpen = dataAppointment.getHour() < 7;
-        var hoursAppointmentClose = dataAppointment.getHour() > 18;
+        var dataConsultation = data.data();
+        var isEqualsSunday = dataConsultation.getDayOfWeek().equals(DayOfWeek.SUNDAY);
+        var hoursClinicOpen = dataConsultation.getHour() < 7;
+        var hoursClinicClose = dataConsultation.getHour() > 18;
 
-        if(isEqualsSunday || hoursAppointmentOpen || hoursAppointmentClose){
+        if(isEqualsSunday || hoursClinicOpen || hoursClinicClose){
             throw  new ValidationException("Medical consultation outside the clinic's opening hours");
         }
 
