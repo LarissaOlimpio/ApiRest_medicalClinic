@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Table(name = "appointment")
-@Entity(name = "Appointment")
+@Entity(name = "Consultation")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-public class Appointment {
+public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

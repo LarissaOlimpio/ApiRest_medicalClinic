@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("doctor-appointment")
-public class DoctorAppointment {
+public class DoctorConsultation {
     @Autowired
     private ScheduleAppointment schedule;
     @Autowired
     private AppointmentRepository appointmentRepository;
     @PostMapping
-    public ResponseEntity schedule(@RequestBody @Valid AppointmentData data){
+    public ResponseEntity schedule(@RequestBody @Valid ConsultationData data){
         schedule.schedule(data);
         return ResponseEntity.ok(new AppointmentDetails(data));
     }
     @DeleteMapping
     @Transactional
-    public ResponseEntity deleteAppointment(@RequestBody @Valid AppointmentDataDelete data){
+    public ResponseEntity deleteAppointment(@RequestBody @Valid ConsultationDataDelete data){
         schedule.delete(data);
         return ResponseEntity.noContent().build();
     }

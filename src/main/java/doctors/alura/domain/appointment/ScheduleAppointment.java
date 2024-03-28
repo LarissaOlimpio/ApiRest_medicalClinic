@@ -17,7 +17,7 @@ public class ScheduleAppointment {
     @Autowired
     private DoctorsRepository doctorsRepository;
 
-    public void schedule(AppointmentData data){
+    public void schedule(ConsultationData data){
         if(!patientsRepository.existsById(data.idPatient())){
             throw  new CustomValidationException("ID patient not exist");
         }
@@ -27,12 +27,12 @@ public class ScheduleAppointment {
         var doctor = chooseDoctor(data);
         var patient = patientsRepository.getReferenceById(data.idPatient());
 
-        var appointment = new Appointment( null, doctor, patient, data.data(), null);
+        var appointment = new Consultation( null, doctor, patient, data.data(), null);
         appointmentRepository.save(appointment);
         System.out.println(appointment);
     }
 
-    private Doctors chooseDoctor(AppointmentData data) {
+    private Doctors chooseDoctor(ConsultationData data) {
         if(data.idDoctor() != null){
             return doctorsRepository.getReferenceById(data.idDoctor());
 
@@ -44,9 +44,9 @@ public class ScheduleAppointment {
         return doctorsRepository.chooseRandomDoctor(data.specialty(), data.data());
     }
 
-    public void delete(AppointmentDataDelete data) {
+    public void delete(ConsultationDataDelete data) {
         if(!appointmentRepository.existsById(data.idAppointment())){
-            throw new ValidationException("Appointment Id not exist");
+            throw new ValidationException("Consultation Id not exist");
         }
         var appointment = appointmentRepository.getReferenceById(data.idAppointment());
         appointment.delete(data.reason());

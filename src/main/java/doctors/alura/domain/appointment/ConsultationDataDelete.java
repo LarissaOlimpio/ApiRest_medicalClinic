@@ -2,7 +2,7 @@ package doctors.alura.domain.appointment;
 
 import jakarta.validation.constraints.NotNull;
 
-public record AppointmentDataDelete(
+public record ConsultationDataDelete(
         @NotNull
         Long idAppointment,
 
