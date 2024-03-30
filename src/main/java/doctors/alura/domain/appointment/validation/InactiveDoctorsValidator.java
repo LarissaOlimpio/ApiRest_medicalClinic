@@ -3,9 +3,10 @@ package doctors.alura.domain.appointment.validation;
 import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.appointment.ConsultationData;
 import doctors.alura.domain.doctors.DoctorsRepository;
+import org.springframework.stereotype.Component;
 
-
-public class InactiveDoctorsValidator {
+@Component
+public class InactiveDoctorsValidator implements AllValidators {
     private DoctorsRepository repository;
     public void validator(ConsultationData data){
 

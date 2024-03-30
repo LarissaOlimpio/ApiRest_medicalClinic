@@ -2,11 +2,12 @@ package doctors.alura.domain.appointment.validation;
 
 import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.appointment.ConsultationData;
+import org.springframework.stereotype.Component;
 
 
 import java.time.DayOfWeek;
-
-public class ClinicOperatingHoursValidator {
+@Component
+public class ClinicOperatingHoursValidator implements   AllValidators{
 
     public void validator(ConsultationData data){
         var dataConsultation = data.data();
