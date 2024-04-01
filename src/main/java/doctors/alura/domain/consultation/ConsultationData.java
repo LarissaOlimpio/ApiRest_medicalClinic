@@ -1,4 +1,4 @@
-package doctors.alura.domain.appointment;
+package doctors.alura.domain.consultation;
 
 import doctors.alura.domain.doctors.Specialty;
 import jakarta.validation.constraints.Future;
@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 
 public record ConsultationData(
 
-        Long idDoctor,
+        Long doctorId,
         @NotNull
-        Long idPatient,
+        Long patientId,
         @NotNull
         @Future
         LocalDateTime data,

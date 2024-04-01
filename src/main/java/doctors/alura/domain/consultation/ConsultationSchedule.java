@@ -1,7 +1,7 @@
-package doctors.alura.domain.appointment;
+package doctors.alura.domain.consultation;
 
 import doctors.alura.domain.CustomValidationException;
-import doctors.alura.domain.appointment.validation.AllValidators;
+import doctors.alura.domain.consultation.validation.AllValidators;
 import doctors.alura.domain.doctors.Doctors;
 import doctors.alura.domain.doctors.DoctorsRepository;
 import doctors.alura.domain.patients.PatientsRepository;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ScheduleAppointment {
+public class ConsultationSchedule {
     @Autowired
     private ConsultationRepository consultationRepository;
     @Autowired
@@ -24,24 +24,24 @@ public class ScheduleAppointment {
     private List<AllValidators> validatorsList;
 
     public void schedule(ConsultationData data){
-        if(!patientsRepository.existsById(data.idPatient())){
+        if(!patientsRepository.existsById(data.patientId())){
             throw  new CustomValidationException("ID patient not exist");
         }
-        if (data.idDoctor() != null && !doctorsRepository.existsById(data.idDoctor())) {
+        if (data.doctorId() != null && !doctorsRepository.existsById(data.doctorId())) {
             throw  new CustomValidationException("ID doctor not exist");
         }
         validatorsList.forEach(v -> v.validator(data));
         var doctor = chooseDoctor(data);
-        var patient = patientsRepository.getReferenceById(data.idPatient());
+        var patient = patientsRepository.getReferenceById(data.patientId());
 
-        var appointment = new Consultation( null, doctor, patient, data.data(), null);
-        consultationRepository.save(appointment);
-        System.out.println(appointment);
+        var consultation = new Consultation( null, doctor, patient, data.data(), null);
+        consultationRepository.save(consultation);
+
     }
 
     private Doctors chooseDoctor(ConsultationData data) {
-        if(data.idDoctor() != null){
-            return doctorsRepository.getReferenceById(data.idDoctor());
+        if(data.doctorId() != null){
+            return doctorsRepository.getReferenceById(data.doctorId());
 
         }
         if(data.specialty() == null){
@@ -52,10 +52,10 @@ public class ScheduleAppointment {
     }
 
     public void delete(ConsultationDataDelete data) {
-        if(!consultationRepository.existsById(data.idAppointment())){
+        if(!consultationRepository.existsById(data.idConsultation())){
             throw new ValidationException("Consultation Id not exist");
         }
-        var appointment = consultationRepository.getReferenceById(data.idAppointment());
-        appointment.delete(data.reason());
+        var consultation = consultationRepository.getReferenceById(data.idConsultation());
+        consultation.delete(data.reason());
     }
 }

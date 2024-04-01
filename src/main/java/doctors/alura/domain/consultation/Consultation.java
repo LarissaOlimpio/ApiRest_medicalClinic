@@ -1,4 +1,4 @@
-package doctors.alura.domain.appointment;
+package doctors.alura.domain.consultation;
 
 import doctors.alura.domain.doctors.Doctors;
 import doctors.alura.domain.patients.Patients;

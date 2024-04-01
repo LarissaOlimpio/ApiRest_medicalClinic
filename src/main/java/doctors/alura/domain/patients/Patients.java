@@ -23,7 +23,7 @@ public class Patients {
     private String email;
     @Embedded
     private Address address;
-    public Boolean active;
+    public boolean active;
 
     public Patients(PatientsData data){
         this.active =true;

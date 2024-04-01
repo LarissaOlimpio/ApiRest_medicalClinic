@@ -1,7 +1,7 @@
-package doctors.alura.domain.appointment.validation;
+package doctors.alura.domain.consultation.validation;
 
 import doctors.alura.domain.CustomValidationException;
-import doctors.alura.domain.appointment.ConsultationData;
+import doctors.alura.domain.consultation.ConsultationData;
 import doctors.alura.domain.doctors.DoctorsRepository;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +10,12 @@ public class InactiveDoctorsValidator implements AllValidators {
     private DoctorsRepository repository;
     public void validator(ConsultationData data){
 
-       if(data.idDoctor() == null ){
+       if(data.doctorId() == null ){
            return;
         }
-        boolean doctorIsActive = (boolean) repository.findActiveById(data.idDoctor());
+        boolean doctorIsActive = (boolean) repository.findActiveById(data.doctorId());
         if(!doctorIsActive){
-            throw new CustomValidationException("appointment cannot be scheduled with an inactive doctor");
+            throw new CustomValidationException("This consultation can't be scheduled with an inactive doctor");
         }
 
     }
