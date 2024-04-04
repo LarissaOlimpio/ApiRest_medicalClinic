@@ -4,11 +4,13 @@ import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.consultation.validation.AllValidators;
 import doctors.alura.domain.doctors.Doctors;
 import doctors.alura.domain.doctors.DoctorsRepository;
+import doctors.alura.domain.doctors.Specialty;
 import doctors.alura.domain.patients.PatientsRepository;
 import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -52,6 +54,9 @@ public class ConsultationSchedule {
             throw new CustomValidationException("Specialty is mandatory when doctor is not chosen");
 
         }
+
+
+
         return doctorsRepository.chooseRandomDoctor(data.specialty(), data.data());
     }
 
