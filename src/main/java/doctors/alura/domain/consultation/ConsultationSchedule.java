@@ -23,7 +23,7 @@ public class ConsultationSchedule {
     @Autowired
     private List<AllValidators> validatorsList;
 
-    public void schedule(ConsultationData data){
+    public ConsultationDetails schedule(ConsultationData data){
         if(!patientsRepository.existsById(data.patientId())){
             throw  new CustomValidationException("ID patient not exist");
         }
@@ -32,10 +32,14 @@ public class ConsultationSchedule {
         }
         validatorsList.forEach(v -> v.validator(data));
         var doctor = chooseDoctor(data);
+        if(doctor == null){
+            throw  new CustomValidationException("doctors unavailable");
+        }
         var patient = patientsRepository.getReferenceById(data.patientId());
 
         var consultation = new Consultation( null, doctor, patient, data.data(), null);
         consultationRepository.save(consultation);
+        return new ConsultationDetails(consultation);
 
     }
 
@@ -45,7 +49,7 @@ public class ConsultationSchedule {
 
         }
         if(data.specialty() == null){
-            throw new ValidationException("Specialty is mandatory when doctor is not chosen");
+            throw new CustomValidationException("Specialty is mandatory when doctor is not chosen");
 
         }
         return doctorsRepository.chooseRandomDoctor(data.specialty(), data.data());
