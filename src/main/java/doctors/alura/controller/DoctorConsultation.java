@@ -32,7 +32,7 @@ public class DoctorConsultation {
     }
     @GetMapping
     public ResponseEntity <List<ConsultationDetails>> listConsultations(Pageable pagination){
-        Page<Consultation> consultationPage = consultationRepository.findAll(pagination);
+        Page<Consultation> consultationPage = consultationRepository.findAllByReasonDeleteIsNull(pagination);
         List<ConsultationDetails> consultationDetails = consultationPage.getContent().stream()
                 .map(ConsultationDetails::new).toList();
         return ResponseEntity.ok(consultationDetails);

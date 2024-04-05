@@ -20,6 +20,8 @@ public interface DoctorsRepository extends JpaRepository<Doctors, Long> {
                 select c.doctor.id from Consultation c
                 where
                 c.data = :data
+            and
+                c.reasonDelete is null
             )
             order by rand()
             limit 1

@@ -12,7 +12,7 @@ public class DoctorWithConsultationInTheSameTimeValidator implements AllValidato
     @Autowired
     private ConsultationRepository repository;
     public void validator(ConsultationData data){
-        var thereConsultationWithThisDoctor = repository.existsByDoctorIdAndData(data.doctorId(),data.data());
+        var thereConsultationWithThisDoctor = repository.existsByDoctorIdAndDataAndReasonDeleteIsNull(data.doctorId(),data.data());
         if(thereConsultationWithThisDoctor){
             throw new CustomValidationException("The doctor already have an consultation in this time");
         }
