@@ -1,16 +1,13 @@
 package doctors.alura.domain.consultation;
 
 import doctors.alura.domain.CustomValidationException;
-import doctors.alura.domain.consultation.validation.AllValidators;
+import doctors.alura.domain.consultation.validation.schedule.AllValidators;
 import doctors.alura.domain.doctors.Doctors;
 import doctors.alura.domain.doctors.DoctorsRepository;
-import doctors.alura.domain.doctors.Specialty;
 import doctors.alura.domain.patients.PatientsRepository;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -62,7 +59,7 @@ public class ConsultationSchedule {
 
     public void delete(ConsultationDataDelete data) {
         if(!consultationRepository.existsById(data.idConsultation())){
-            throw new ValidationException("Consultation Id not exist");
+            throw new CustomValidationException("Consultation Id not exist");
         }
         var consultation = consultationRepository.getReferenceById(data.idConsultation());
         consultation.delete(data.reason());

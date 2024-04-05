@@ -1,13 +1,14 @@
-package doctors.alura.domain.consultation.validation;
+package doctors.alura.domain.consultation.validation.schedule;
 
 import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.consultation.ConsultationData;
+import doctors.alura.domain.consultation.validation.schedule.AllValidators;
 import doctors.alura.domain.patients.PatientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InactivePatientsValidator implements AllValidators{
+public class InactivePatientsValidator implements AllValidators {
     @Autowired
     private PatientsRepository repository;
     public void validator(ConsultationData data){

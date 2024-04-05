@@ -1,4 +1,4 @@
-package doctors.alura.domain.consultation.validation;
+package doctors.alura.domain.consultation.validation.schedule;
 
 import doctors.alura.domain.consultation.ConsultationData;
 
