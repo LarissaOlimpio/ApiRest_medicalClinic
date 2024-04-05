@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-@Component
+@Component("EarlyTimeValidatorSchedule")
 public class EarlyTimeValidator implements AllValidators {
     public void validator(ConsultationData data){
         var consultationHour = data.data();

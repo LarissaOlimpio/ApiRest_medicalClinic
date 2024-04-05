@@ -3,10 +3,12 @@ package doctors.alura.domain.consultation.validation.cancel;
 import doctors.alura.domain.CustomValidationException;
 import doctors.alura.domain.consultation.ConsultationDataDelete;
 import doctors.alura.domain.consultation.ConsultationRepository;
+import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+@Component("EarlyTimeValidatorCancel")
 public class EarlyTimeValidator implements CancellationValidator{
    private ConsultationRepository repository;
     @Override
