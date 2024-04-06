@@ -11,22 +11,17 @@ Esse projeto é sobre o desenvolvimento da API Rest para essa clínica.
 - [x] CRUD de médicos;
 - [x] CRUD de pacientes;
 - [ ] CRUD de usuários(em andamento);
-- [ ] Agendamento de consultas(em breve);
-- [ ] Cancelamento de consultas(em breve);
+- [x] Agendamento de consultas;
+- [x] Listagem das consultas agendadas;
+- [x] Cancelamento de consultas;
 
 ---
 
-## 🎨 Layout
-
-O layout da aplicação mobile está disponível neste link: <a href="https://www.figma.com/file/N4CgpJqsg7gjbKuDmra3EV/Voll.med">Figma</a>
-
----
-
-## 📄 Documentação
+<!--- ## 📄 Documentação
 
 A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="https://trello.com/b/O0lGCsKb/api-voll-med">Trello</a>
 
----
+--- --->
 
 ## 🛠 Tecnologias
 
