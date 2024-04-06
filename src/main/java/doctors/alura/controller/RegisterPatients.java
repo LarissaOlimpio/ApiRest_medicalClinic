@@ -3,6 +3,7 @@ import doctors.alura.domain.patients.Patients;
 import doctors.alura.domain.patients.PatientsDataList;
 import doctors.alura.domain.patients.PatientsRepository;
 import doctors.alura.domain.patients.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("patients")
-
+@SecurityRequirement(name = "bearer-key")
 public class RegisterPatients {
     @Autowired
     private PatientsRepository repository;
