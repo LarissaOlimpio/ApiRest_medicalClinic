@@ -36,6 +36,9 @@ public class Consultation {
     @Enumerated(EnumType.STRING)
     private ReasonDelete reasonDelete;
 
+
+
+
     public void delete(ReasonDelete reason) {
         this.reasonDelete = reason;
     }

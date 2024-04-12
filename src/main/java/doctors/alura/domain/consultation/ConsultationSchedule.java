@@ -32,7 +32,9 @@ public class ConsultationSchedule {
         validatorsList.forEach(v -> v.validator(data));
         var doctor = chooseDoctor(data);
         if(doctor == null){
+
             throw  new CustomValidationException("doctors unavailable");
+
         }
         var patient = patientsRepository.getReferenceById(data.patientId());
 
