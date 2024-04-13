@@ -1,6 +1,7 @@
 package doctors.alura.domain.consultation;
 
 import doctors.alura.domain.CustomValidationException;
+import doctors.alura.domain.consultation.validation.cancel.CancellationValidator;
 import doctors.alura.domain.consultation.validation.schedule.AllValidators;
 import doctors.alura.domain.doctors.Doctors;
 import doctors.alura.domain.doctors.DoctorsRepository;
@@ -21,6 +22,8 @@ public class ConsultationSchedule {
 
     @Autowired
     private List<AllValidators> validatorsList;
+    @Autowired
+    private List<CancellationValidator> validatorListCancel;
 
     public ConsultationDetails schedule(ConsultationData data){
         if(!patientsRepository.existsById(data.patientId())){
@@ -63,6 +66,7 @@ public class ConsultationSchedule {
         if(!consultationRepository.existsById(data.idConsultation())){
             throw new CustomValidationException("Consultation Id not exist");
         }
+        validatorListCancel.forEach(v -> v.validator(data));
         var consultation = consultationRepository.getReferenceById(data.idConsultation());
         consultation.delete(data.reason());
     }
