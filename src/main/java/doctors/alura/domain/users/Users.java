@@ -83,4 +83,20 @@ public class Users implements UserDetails {
     public void encryptAndSetPassword(String password, PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
     }
+
+    public void updateInformation(UsersDataUpdate data) {
+        if(data.name() != null){
+            this.email = data.email();
+        }
+        if(data.email() != null){
+            this.email = data.email();
+        }
+        if(data.phone() != null){
+            this.phone = data.phone();
+        }
+        if(data.password() != null){
+            this.password = data.password();
+        }
+
+    }
 }

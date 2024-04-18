@@ -34,6 +34,13 @@ public class RegisterNewUser {
         var page = repository.findAllByActiveTrue(pagination).map( UserDataList :: new);
         return ResponseEntity.ok(page);
     }
+    @PutMapping
+    @Transactional
+    public ResponseEntity update(@RequestBody @Valid UsersDataUpdate data){
+        var users = repository.getReferenceById(data.id());
+        users.updateInformation(data);
+        return ResponseEntity.ok(new userDetails(users));
+    }
 
 
 
