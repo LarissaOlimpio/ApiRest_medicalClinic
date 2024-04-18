@@ -10,18 +10,13 @@ Esse projeto é sobre o desenvolvimento da API Rest para essa clínica.
 
 - [x] CRUD de médicos;
 - [x] CRUD de pacientes;
-- [ ] CRUD de usuários(em andamento);
+- [x] CRUD de usuários;
 - [x] Agendamento de consultas;
 - [x] Listagem das consultas agendadas;
 - [x] Cancelamento de consultas;
+- [ ] Permitir que um médico ou paciente seja excluído apenas se o usuário for administrador (ADMIN) - (em andamento)
 
 ---
-
-<!--- ## 📄 Documentação
-
-A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="https://trello.com/b/O0lGCsKb/api-voll-med">Trello</a>
-
---- --->
 
 ## 🛠 Tecnologias
 
