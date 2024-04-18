@@ -41,6 +41,13 @@ public class RegisterNewUser {
         users.updateInformation(data);
         return ResponseEntity.ok(new userDetails(users));
     }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity deleteUser(@PathVariable Long id){
+        var user =  repository.getReferenceById(id);
+        user.delete();
+        return ResponseEntity.noContent().build();
+    }
 
 
 

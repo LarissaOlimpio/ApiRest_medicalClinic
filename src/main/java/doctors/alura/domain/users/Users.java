@@ -99,4 +99,8 @@ public class Users implements UserDetails {
         }
 
     }
+
+    public void delete() {
+        this.active = false;
+    }
 }
