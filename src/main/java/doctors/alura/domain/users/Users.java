@@ -48,10 +48,14 @@ public class Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority>authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        return authorities;
+//        List<GrantedAuthority>authorities = new ArrayList<>();
+//        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+//        authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+//        return authorities;
+        if(this.typeUser == TypeUser.ADMIN) return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_DOCTOR"), new SimpleGrantedAuthority("ROLE_PATIENT"));
+        else if (this.typeUser == TypeUser.DOCTOR) return  List.of(new SimpleGrantedAuthority("ROLE_DOCTOR"));
+        else return List.of(new SimpleGrantedAuthority("ROLE_PATIENT"));
+
     }
 
 
